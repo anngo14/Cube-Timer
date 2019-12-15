@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-times',
@@ -7,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimesComponent implements OnInit {
 
+  ao5 = 'n/a';
+  ao12 = 'n/a';
+  totalAvg = 'n/a';
+  displayedColumns: string[] = ['position', 'time'];
+  tableData: Time[];
+  dataSource = this.tableData;
   constructor() { }
 
   ngOnInit() {
