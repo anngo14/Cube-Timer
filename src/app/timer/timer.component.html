@@ -1,1 +1,2 @@
-<p class="timer">{{timerDisplay}}</p>
+<span *ngIf="running != 1" class="timer" (click)="start()">{{seconds | number: '1.2-2'}}</span>
+<span *ngIf="running === 1" class="inspection" (click)="start()">{{inspectionTime}}</span>
