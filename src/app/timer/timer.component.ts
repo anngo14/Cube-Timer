@@ -14,15 +14,39 @@ export class TimerComponent implements OnInit {
   inspectionID;
   running: number = 0;
   key;
+  keyDown:boolean = false;
+  mouseDown:boolean = false;
   constructor() { }
 
   @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(event:KeyboardEvent) {
+    this.keyDown = false;
     this.key = event.key;
     if(this.key === ' '){
       this.start();
     }
   }
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardDownEvent(event:KeyboardEvent) {
+    this.key = event.key;
+    if(this.key === ' '){
+      this.keyDown = true;
+    }
+  }
+  @HostListener('document:mousedown', ['$event'])
+  handleMouseDownEvent(event:MouseEvent) {
+    if(event.buttons === 1){
+      this.mouseDown = true;
+    }
+  }
+  @HostListener('document:mouseup', ['$event'])
+  handleMouseUpEvent(event:MouseEvent) {
+    if(event.buttons === 0){
+      this.start();
+      this.mouseDown = false;
+    }
+  }
+
 
   ngOnInit() {
   }
