@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-  
+  timerDisplay = "0.00";
   constructor() { }
 
   ngOnInit() {

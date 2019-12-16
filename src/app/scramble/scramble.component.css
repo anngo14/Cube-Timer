@@ -3,7 +3,10 @@
 }
 .scrambleContainer{
     text-align: center;
+    font-size: 22pt;
+    color: darkslategray;
 }
 .scrambleHeader{
     text-align: center;
+    font-size: 36pt;
 }

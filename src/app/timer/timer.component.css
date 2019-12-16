@@ -1,0 +1,12 @@
+:host{
+    width: 100%;
+}
+p{
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    transform: translate(-25%, -100%);
+}
+.timer{
+    font-size: 225pt;
+}

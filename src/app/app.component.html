@@ -3,7 +3,15 @@
   <span class="spacer"></span>
   <mat-icon>settings</mat-icon>
 </mat-toolbar>
-<app-scramble></app-scramble>
-<app-times></app-times>
-<app-timer></app-timer>
+<mat-grid-list cols="7" rowHeight="1:1">
+  <mat-grid-tile colspan="7">
+    <app-scramble></app-scramble>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="2">
+    <app-times></app-times>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="5" rowspan="2">
+    <app-timer></app-timer>
+  </mat-grid-tile>
+</mat-grid-list>
 <router-outlet></router-outlet>

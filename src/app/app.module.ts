@@ -10,6 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon'; 
 import {MatTableModule} from '@angular/material/table';
 import { ScrambleComponent } from './scramble/scramble.component'; 
+import {MatGridListModule} from '@angular/material/grid-list'; 
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { ScrambleComponent } from './scramble/scramble.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
