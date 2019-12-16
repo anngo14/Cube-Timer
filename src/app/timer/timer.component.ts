@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-timer',
@@ -9,6 +10,7 @@ import { HostListener } from '@angular/core';
 export class TimerComponent implements OnInit {
 
   inspectionTime = 15;
+  trialID:number = 0;
   seconds = 0.00;
   timeID;
   inspectionID;
@@ -16,7 +18,7 @@ export class TimerComponent implements OnInit {
   key;
   keyDown:boolean = false;
   mouseDown:boolean = false;
-  constructor() { }
+  constructor(private data:DataService) { }
 
   @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(event:KeyboardEvent) {
@@ -53,6 +55,7 @@ export class TimerComponent implements OnInit {
 
   startTimer()
   {
+    this.trialID += 1;
     clearInterval(this.inspectionID);
     this.seconds = 0.00;
     this.running = 2;
@@ -74,6 +77,7 @@ export class TimerComponent implements OnInit {
     switch(this.running){
       case 0: 
         this.stopTimer();
+        this.data.changeTrial(this.trialID);
         break;
       case 1:
         this.inspection();
@@ -82,6 +86,7 @@ export class TimerComponent implements OnInit {
         this.startTimer();
         break;
     }
+    this.data.changeState(this.running);
   }
   inspection(){
     this.inspectionID = setInterval(() => {
