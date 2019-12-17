@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Time } from 'src/models/time';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,11 @@ export class DataService {
   private state = new BehaviorSubject(0);
   stateObs = this.state.asObservable();
 
-  private trial = new BehaviorSubject(0);
+  timeTemp:Time = {
+    position: -1,
+    time: -1
+  };
+  private trial = new BehaviorSubject(this.timeTemp);
   trialObs = this.trial.asObservable();
 
   constructor() { }
@@ -17,7 +22,7 @@ export class DataService {
   changeState(s:number){
     this.state.next(s);
   }
-  changeTrial(t:number){
+  changeTrial(t:Time){
     this.trial.next(t);
   }
 }

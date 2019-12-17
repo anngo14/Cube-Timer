@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Time } from 'src/models/time';
 
 @Component({
   selector: 'app-timer',
@@ -77,7 +78,11 @@ export class TimerComponent implements OnInit {
     switch(this.running){
       case 0: 
         this.stopTimer();
-        this.data.changeTrial(this.trialID);
+        let timeTemp:Time = {
+          position: this.trialID,
+          time: Math.round(this.seconds * 100) / 100
+        };
+        this.data.changeTrial(timeTemp);
         break;
       case 1:
         this.inspection();

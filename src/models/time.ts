@@ -1,4 +1,4 @@
 export interface Time {
-    position:number;
-    time:string;
-}
+    position:number,
+    time:number
+};

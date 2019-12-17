@@ -5,9 +5,25 @@
 .averages{
   text-align: center;
 }
+.tableContainer{
+  height: 65%;
+  overflow-y: scroll;
+  position: relative;
+  /*-ms-overflow-style: none; Hides Scrollbar on other browsers like IE or Edge */
+}
+/* Hides Scrollbar on Chrome
+.tableContainer::-webkit-scrollbar{
+  display:none;
+}
+*/
 table {
-  width: 90%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+th{
+  font-size: 40pt;
+}
+td{
+  font-size: 32pt;
 }
