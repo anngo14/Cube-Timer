@@ -24,8 +24,39 @@ export class TimesComponent implements OnInit {
         this.tableData.push(data);
         this.dataSource.data = this.tableData;
       }
-      console.log(this.dataSource);
+      if(this.tableData.length >= 5){
+        this.calculate5();
+      }
+      if(this.tableData.length >= 12){
+        this.calculate12();
+      }
+      this.calculateMean();
     });
+  }
+  calculateMean(){
+    let sum:number = 0;
+    this.tableData.forEach((x) => {
+      sum += x.time;
+    });
+    this.totalAvg = (sum / this.tableData.length).toFixed(2);
+  }
+  calculate5(){
+    let sum:number = 0;
+    let j = this.tableData.length - 1;
+    for(let i = 0; i < 5; i++) {
+      sum += this.tableData[j].time;
+      j--;
+    }
+    this.ao5 = (sum / 5 ).toFixed(2);
+  }
+  calculate12(){
+    let sum:number = 0;
+    let j = this.tableData.length - 1;
+    for(let i = 0; i < 12; i++) {
+      sum += this.tableData[j].time;
+      j--;
+    }
+    this.ao12 = (sum / 12 ).toFixed(2);
   }
 
 }
