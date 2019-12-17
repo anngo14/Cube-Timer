@@ -9,13 +9,11 @@
   height: 65%;
   overflow-y: scroll;
   position: relative;
-  /*-ms-overflow-style: none; Hides Scrollbar on other browsers like IE or Edge */
+  -ms-overflow-style: none;
 }
-/* Hides Scrollbar on Chrome
 .tableContainer::-webkit-scrollbar{
   display:none;
 }
-*/
 table {
   width: 100%;
   padding-left: 50px;

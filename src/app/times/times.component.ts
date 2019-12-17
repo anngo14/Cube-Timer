@@ -21,7 +21,7 @@ export class TimesComponent implements OnInit {
   ngOnInit() {
     this.data.trialObs.subscribe(data => {
       if(data.position != -1 && data.time != -1){
-        this.tableData.push(data);
+        this.tableData.unshift(data);
         this.dataSource.data = this.tableData;
         this.calculateMean();
       }
