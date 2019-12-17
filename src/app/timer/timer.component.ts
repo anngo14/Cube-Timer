@@ -54,6 +54,7 @@ export class TimerComponent implements OnInit {
     this.data.resetObs.subscribe((data) => {
       if(data === true){
         this.trialID = 0;
+        this.seconds = 0;
       }
     });
   }
