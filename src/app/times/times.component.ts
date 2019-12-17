@@ -23,6 +23,7 @@ export class TimesComponent implements OnInit {
       if(data.position != -1 && data.time != -1){
         this.tableData.push(data);
         this.dataSource.data = this.tableData;
+        this.calculateMean();
       }
       if(this.tableData.length >= 5){
         this.calculate5();
@@ -30,7 +31,6 @@ export class TimesComponent implements OnInit {
       if(this.tableData.length >= 12){
         this.calculate12();
       }
-      this.calculateMean();
     });
   }
   calculateMean(){
