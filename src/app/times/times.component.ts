@@ -58,5 +58,12 @@ export class TimesComponent implements OnInit {
     }
     this.ao12 = (sum / 12 ).toFixed(2);
   }
-
+  reset(){
+    this.tableData = [];
+    this.dataSource = new MatTableDataSource();
+    this.ao5 = 'n/a';
+    this.ao12 = 'n/a';
+    this.totalAvg = 'n/a';
+    this.data.changeReset(true);
+  }
 }

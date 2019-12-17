@@ -1,5 +1,5 @@
-<span *ngIf="running != 1" class="timer">{{seconds | number: '1.2-2'}}</span>
+<span *ngIf="running != 1" class="timer" (click)="start()">{{seconds | number: '1.2-2'}}</span>
 <span *ngIf="(running === 1 && keyDown === true) || (running === 1 && mouseDown === true); else keyUp" class="inspection" (click)="start()" style="color:red">{{inspectionTime}}</span>
 <ng-template #keyUp>
-    <span *ngIf="running === 1" class="inspection">{{inspectionTime}}</span>
+    <span *ngIf="running === 1" class="inspection" (click)="start()">{{inspectionTime}}</span>
 </ng-template>

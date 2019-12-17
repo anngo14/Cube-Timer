@@ -2,11 +2,14 @@
   width: 100%;
   height: 100%;
 }
-.averages{
-  text-align: center;
+#trashIcon{
+  font-size: 40pt;
+  margin-right: -5%;
+  margin-bottom: 10%;
 }
 .tableContainer{
-  height: 65%;
+  width: 100%;
+  height: 100%;
   overflow-y: scroll;
   position: relative;
   -ms-overflow-style: none;
@@ -16,7 +19,7 @@
 }
 table {
   width: 100%;
-  padding-left: 50px;
+  padding-left: 100px;
   padding-right: 50px;
 }
 th{

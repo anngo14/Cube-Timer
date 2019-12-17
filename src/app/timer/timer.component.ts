@@ -36,7 +36,7 @@ export class TimerComponent implements OnInit {
       this.keyDown = true;
     }
   }
-  @HostListener('document:mousedown', ['$event'])
+  /*@HostListener('document:mousedown', ['$event'])
   handleMouseDownEvent(event:MouseEvent) {
     if(event.buttons === 1){
       this.mouseDown = true;
@@ -48,10 +48,14 @@ export class TimerComponent implements OnInit {
       this.start();
       this.mouseDown = false;
     }
-  }
-
+  }*/
 
   ngOnInit() {
+    this.data.resetObs.subscribe((data) => {
+      if(data === true){
+        this.trialID = 0;
+      }
+    });
   }
 
   startTimer()

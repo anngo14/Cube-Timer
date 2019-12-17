@@ -1,20 +1,30 @@
-<div class="averages">
-    <h2> Average of 5: {{ao5}}</h2>
-    <h2> Average of 12: {{ao12}}</h2>
-    <h2> Total Average: {{totalAvg}}</h2>
-</div>
-<div class="tableContainer" id="tableDiv">
-    <table mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let trial"> {{trial.position}} </td>
-        </ng-container>
-        <ng-container matColumnDef="time">
-            <th mat-header-cell *matHeaderCellDef> Time </th>
-            <td mat-cell *matCellDef="let trial"> {{trial.time}} </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-</div>
+<mat-grid-list cols="2" rowheight="1:1">
+    <mat-grid-tile>
+        <mat-icon id="trashIcon" (click)="reset()">delete_forever</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="averages">
+            <h2> Average of 5: {{ao5}}</h2>
+            <h2> Average of 12: {{ao12}}</h2>
+            <h2> Total Average: {{totalAvg}}</h2>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+        <div class="tableContainer" id="tableDiv">
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let trial"> {{trial.position}} </td>
+                </ng-container>
+                <ng-container matColumnDef="time">
+                    <th mat-header-cell *matHeaderCellDef> Time </th>
+                    <td mat-cell *matCellDef="let trial"> {{trial.time}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+
 

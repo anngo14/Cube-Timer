@@ -17,6 +17,8 @@ export class DataService {
   private trial = new BehaviorSubject(this.timeTemp);
   trialObs = this.trial.asObservable();
 
+  private reset = new BehaviorSubject(false);
+  resetObs = this.reset.asObservable();
   constructor() { }
 
   changeState(s:number){
@@ -24,5 +26,8 @@ export class DataService {
   }
   changeTrial(t:Time){
     this.trial.next(t);
+  }
+  changeReset(r:boolean){
+    this.reset.next(r);
   }
 }
