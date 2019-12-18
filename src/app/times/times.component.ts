@@ -78,9 +78,20 @@ export class TimesComponent implements OnInit {
     }
     this.dataSource = new MatTableDataSource();
     this.dataSource.data = this.tableData;
+    
     if(this.tableData.length === 0){
       this.reset();
     }
-    console.log(this.tableData);
+    this.calculateMean();
+    if(this.tableData.length >= 5){
+      this.calculate5();
+    } else {
+      this.ao5 = 'n/a';
+    }
+    if(this.tableData.length >= 12){
+      this.calculate12();
+    } else {
+      this.ao12 = 'n/a';
+    }
   }
 }
