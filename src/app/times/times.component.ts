@@ -82,16 +82,21 @@ export class TimesComponent implements OnInit {
     if(this.tableData.length === 0){
       this.reset();
     }
-    this.calculateMean();
-    if(this.tableData.length >= 5){
-      this.calculate5();
+    if(this.tableData.length > 0){
+      this.data.updatePosition(this.tableData[0].position);
+      this.calculateMean();
+      if(this.tableData.length >= 5){
+        this.calculate5();
+      } else {
+        this.ao5 = 'n/a';
+      }
+      if(this.tableData.length >= 12){
+        this.calculate12();
+      } else {
+        this.ao12 = 'n/a';
+      }
     } else {
-      this.ao5 = 'n/a';
-    }
-    if(this.tableData.length >= 12){
-      this.calculate12();
-    } else {
-      this.ao12 = 'n/a';
+      this.totalAvg = 'n/a';
     }
   }
 }

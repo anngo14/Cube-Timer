@@ -55,7 +55,11 @@ export class TimerComponent implements OnInit {
       if(data === true){
         this.trialID = 0;
         this.seconds = 0;
+        this.data.changeState(this.running);
       }
+    });
+    this.data.trialPosObs.subscribe((data) => {
+      this.trialID = data;
     });
   }
 

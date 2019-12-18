@@ -19,6 +19,10 @@ export class DataService {
 
   private reset = new BehaviorSubject(false);
   resetObs = this.reset.asObservable();
+
+  private trialPosition = new BehaviorSubject(0);
+  trialPosObs = this.trialPosition.asObservable();
+
   constructor() { }
 
   changeState(s:number){
@@ -29,5 +33,8 @@ export class DataService {
   }
   changeReset(r:boolean){
     this.reset.next(r);
+  }
+  updatePosition(p:number){
+    this.trialPosition.next(p);
   }
 }

@@ -18,7 +18,7 @@ export class ScrambleComponent implements OnInit {
   ngOnInit() {
     this.data.stateObs.subscribe(data => {
       this.state = data;
-      if(this.state === 0 || this.state === 3){
+      if(this.state === 0){
         this.scrambleSolve();
       }
     });
