@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { Time } from 'src/models/time';
 import { MatTableDataSource } from '@angular/material/table';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-times',
@@ -13,7 +14,7 @@ export class TimesComponent implements OnInit {
   ao5 = 'n/a';
   ao12 = 'n/a';
   totalAvg = 'n/a';
-  displayedColumns: string[] = ['position', 'time'];
+  displayedColumns: string[] = ['position', 'time', 'delete'];
   tableData: Time[] = [];
   dataSource = new MatTableDataSource();
   constructor(private data: DataService) { }
@@ -65,5 +66,21 @@ export class TimesComponent implements OnInit {
     this.ao12 = 'n/a';
     this.totalAvg = 'n/a';
     this.data.changeReset(true);
+  }
+  deleteTrial(trial:Time){
+    let index = this.tableData.indexOf(trial);
+    this.tableData.splice(index, 1);
+    if(index > 0){
+      for(let i = 0; i < index; i++) {
+        let temp = this.tableData[i].position;
+        this.tableData[i].position = temp - 1;
+      }
+    }
+    this.dataSource = new MatTableDataSource();
+    this.dataSource.data = this.tableData;
+    if(this.tableData.length === 0){
+      this.reset();
+    }
+    console.log(this.tableData);
   }
 }
