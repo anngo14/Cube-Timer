@@ -43,19 +43,15 @@ export class TimesComponent implements OnInit {
   }
   calculate5(){
     let sum:number = 0;
-    let j = this.tableData.length - 1;
     for(let i = 0; i < 5; i++) {
-      sum += this.tableData[j].time;
-      j--;
+      sum += this.tableData[i].time;
     }
     this.ao5 = (sum / 5 ).toFixed(2);
   }
   calculate12(){
     let sum:number = 0;
-    let j = this.tableData.length - 1;
     for(let i = 0; i < 12; i++) {
-      sum += this.tableData[j].time;
-      j--;
+      sum += this.tableData[i].time;
     }
     this.ao12 = (sum / 12 ).toFixed(2);
   }
